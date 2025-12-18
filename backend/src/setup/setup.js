@@ -15,11 +15,11 @@ async function setupApp() {
 
     const salt = uniqueId();
 
-    const passwordHash = newAdminPassword.generateHash(salt, 'admin123');
+    const passwordHash = newAdminPassword.generateHash(salt, 'control12@3');
 
     const demoAdmin = {
       email: 'admin@admin.com',
-      name: 'IDURAR',
+      name: 'LESOUS',
       surname: 'Admin',
       enabled: true,
       role: 'owner',

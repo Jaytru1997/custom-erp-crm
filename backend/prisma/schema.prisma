@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  role      String
+  companyId String?  @map("company_id")
+  privyDid  String?  @map("privy_did")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  company   Company? @relation(fields: [companyId], references: [id])
+  employees Employee[]
+
+  @@map("users")
+}
+
+model Company {
+  id                   String    @id @default(uuid())
+  name                 String
+  country              String
+  treasurySafeAddress  String?   @map("treasury_safe_address")
+  settings             Json?
+
+  users        User[]
+  employees    Employee[]
+  contractors  Contractor[]
+  payrollRuns  PayrollRun[]
+  escrows      Escrow[]
+
+  @@map("companies")
+}
+
+model Employee {
+  id           String   @id @default(uuid())
+  companyId    String   @map("company_id")
+  userId       String?  @map("user_id")
+  walletAddress String? @map("wallet_address")
+  status       String
+  metadata     Json?
+
+  company Company @relation(fields: [companyId], references: [id])
+  user    User?   @relation(fields: [userId], references: [id])
+
+  @@map("employees")
+}
+
+model Contractor {
+  id            String   @id @default(uuid())
+  companyId     String   @map("company_id")
+  walletAddress String   @map("wallet_address")
+  milestones    Json?    @map("milestones_jsonb")
+
+  company Company  @relation(fields: [companyId], references: [id])
+  escrows Escrow[]
+
+  @@map("contractors")
+}
+
+model PayrollRun {
+  id         String   @id @default(uuid())
+  companyId  String   @map("company_id")
+  period     String
+  status     String
+  totalUsdt  Decimal  @map("total_usdt")
+  txHash     String?  @map("tx_hash")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@map("payroll_runs")
+}
+
+model Escrow {
+  id          String   @id @default(uuid())
+  companyId   String   @map("company_id")
+  contractorId String  @map("contractor_id")
+  amountUsdt  Decimal  @map("amount_usdt")
+  status      String
+  releaseAt   DateTime @map("release_at")
+
+  company    Company    @relation(fields: [companyId], references: [id])
+  contractor Contractor @relation(fields: [contractorId], references: [id])
+
+  @@map("escrows")
+}
+
+
