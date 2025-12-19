@@ -31,8 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(compression());
 
-// // default options
-// app.use(fileUpload());
+// default options for file uploads (used by AuroraHR IPFS upload)
+app.use(fileUpload());
 
 // Here our API Routes
 
