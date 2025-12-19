@@ -17,6 +17,11 @@ export default ({ mode }) => {
       base: '/',
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        'toggle-selection': path.resolve(__dirname, 'src/shims/toggle-selection.js'),
+        'string-convert/camel2hyphen': path.resolve(
+          __dirname,
+          'src/shims/string-convert-camel2hyphen.js'
+        ),
       },
     },
     server: {

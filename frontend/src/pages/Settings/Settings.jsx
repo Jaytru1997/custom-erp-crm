@@ -13,6 +13,7 @@ import GeneralSettings from './GeneralSettings';
 import CompanySettings from './CompanySettings';
 import FinanceSettings from './FinanceSettings';
 import MoneyFormatSettings from './MoneyFormatSettings';
+import AuroraCompanySettings from './AuroraCompanySettings';
 
 import useLanguage from '@/locale/useLanguage';
 import { useParams } from 'react-router-dom';
@@ -32,6 +33,12 @@ export default function Settings() {
       label: translate('Company Settings'),
       icon: <TrophyOutlined />,
       children: <CompanySettings />,
+    },
+    {
+      key: 'aurora_company',
+      label: translate('AuroraHR Company'),
+      icon: <TrophyOutlined />,
+      children: <AuroraCompanySettings />,
     },
     {
       key: 'company_logo',

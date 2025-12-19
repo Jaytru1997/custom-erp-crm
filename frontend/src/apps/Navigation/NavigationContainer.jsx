@@ -59,6 +59,11 @@ function Sidebar({ collapsible, isMobile = false }) {
       icon: <CustomerServiceOutlined />,
       label: <Link to={'/customer'}>{translate('customers')}</Link>,
     },
+    {
+      key: 'aurora/employees',
+      icon: <UserOutlined />,
+      label: <Link to={'/aurora/employees'}>{translate('Employee Management')}</Link>,
+    },
 
     {
       key: 'invoice',

@@ -1,9 +1,9 @@
 {
-  "name": "idurar-erp-crm",
+  "name": "custom-erp-crm",
   "version": "4.1.0",
   "engines": {
-    "node": "20.9.0",
-    "npm": "10.2.4"
+    "npm": "10.8.2",
+    "node": "20.19.6"
   },
   "type": "module",
   "dependencies": {
@@ -17,6 +17,7 @@
     "currency.js": "2.0.4",
     "dayjs": "^1.11.10",
     "just-compare": "^2.3.0",
+    "json2mq": "^0.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
@@ -25,6 +26,8 @@
     "redux": "^5.0.1",
     "reselect": "^5.1.0",
     "shortid": "^2.2.16",
+    "string-convert": "^0.2.1",
+    "toggle-selection": "^1.0.6",
     "vite": "^5.4.8"
   },
   "scripts": {

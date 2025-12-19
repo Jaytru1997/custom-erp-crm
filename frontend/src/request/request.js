@@ -226,6 +226,24 @@ const request = {
     }
   },
 
+  uploadFormData: async ({ entity, formData }) => {
+    try {
+      includeToken();
+      const response = await axios.post(entity, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      successHandler(response, {
+        notifyOnSuccess: true,
+        notifyOnFailed: true,
+      });
+      return response.data;
+    } catch (error) {
+      return errorHandler(error);
+    }
+  },
+
   upload: async ({ entity, id, jsonData }) => {
     try {
       includeToken();

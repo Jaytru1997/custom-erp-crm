@@ -22,15 +22,15 @@ export default function UpgradeButton() {
         }}
         icon={<RocketOutlined />}
         onClick={() => {
-          window.open(`https://entreprise.idurarapp.com`);
+          window.open(`https://www.lesous.ng`);
         }}
       >
-        {translate('Try Entreprise Version')}
+        {translate('Visit Our Website')}
       </Button>
     </Badge>
   );
 }
 
 console.log(
-  '🚀 Welcome to IDURAR ERP CRM! Did you know that we also offer commercial customization services? Contact us at hello@idurarapp.com for more information.'
+  '🚀 Welcome to AURORAHR ERP CRM! Did you know that we also offer commercial customization services? Contact us at contact@lesous.ng for more information.'
 );

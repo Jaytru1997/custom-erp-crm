@@ -28,6 +28,7 @@ const Taxes = lazy(() => import('@/pages/Taxes'));
 const Profile = lazy(() => import('@/pages/Profile'));
 
 const About = lazy(() => import('@/pages/About'));
+const AuroraEmployees = lazy(() => import('@/pages/AuroraEmployees.jsx'));
 
 let routes = {
   expense: [],
@@ -43,6 +44,10 @@ let routes = {
     {
       path: '/about',
       element: <About />,
+    },
+    {
+      path: '/aurora/employees',
+      element: <AuroraEmployees />,
     },
     {
       path: '/',
